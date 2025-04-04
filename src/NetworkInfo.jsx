@@ -1,5 +1,5 @@
 
-export function NetworkInfo({ chainId, name }) {
+export function NetworkInfo({ network: { chainId, name }}) {
   return (
     <div className="container row">
       <div className="row">

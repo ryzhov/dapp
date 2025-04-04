@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
 
-function BalanceReader({ balance, onAddressChanged }) {
+export function BalanceReader({ balance, onAddressChanged }) {
   return (
     <div className="container">
       <h3>Balance Reader</h3>
@@ -12,5 +12,3 @@ function BalanceReader({ balance, onAddressChanged }) {
     </div>
   );
 }
-
-export default BalanceReader;

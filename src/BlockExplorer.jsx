@@ -1,25 +1,12 @@
-import { useState, useEffect } from 'react';
 import Block from './Block';
 
-function BlockExplorer({ provider }) {
-  const [blockNumber, setBlockNumber] = useState(0);
-
-  useEffect(() => {
-    async function getBlockNumber() {
-      const latestBlockNum = await provider.getBlockNumber();
-      console.log('latest block =>', latestBlockNum);
-      setBlockNumber(latestBlockNum);
-    }
-    getBlockNumber();
-  });
+export function BlockExplorer({ blocks }) {
+  console.log('blocks =>', blocks);
 
   return (
     <div className="container">
       <h3>Block Explorer</h3>
-      <Block blocknum = {blockNumber} provider = {provider} />
-      <Block blocknum = {blockNumber - 1} provider = {provider} />
-      <Block blocknum = {blockNumber - 2} provider = {provider} />
+      {blocks.map(block => (<Block key={block.number} block={block} />))}
     </div>
   );
 }
-export default BlockExplorer;
